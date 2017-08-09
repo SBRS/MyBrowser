@@ -1,4 +1,5 @@
 import java.io.File;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -86,7 +87,13 @@ public class MyBrowser extends Application {
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		
-		stage.setTitle("My Browser");
+//		wv.getEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
+//		    if (newState == State.SUCCEEDED) {
+		        String titleText = wv.getEngine().getTitle();
+		        stage.setTitle(titleText);
+//		    }
+//		});
+
 		stage.show();			
 	}
 	
@@ -133,5 +140,5 @@ public class MyBrowser extends Application {
 	    });
 	    
 	    return entryList.get(currentIndex<entryList.size()-1?currentIndex+1:currentIndex).getUrl();
-	}	
+	}
 }
