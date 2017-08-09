@@ -3,6 +3,7 @@ import java.io.File;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Worker.State;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -87,12 +88,12 @@ public class MyBrowser extends Application {
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		
-//		wv.getEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
-//		    if (newState == State.SUCCEEDED) {
+		wv.getEngine().getLoadWorker().stateProperty().addListener((observable, oldState, newState) -> {
+		    if (newState == State.SUCCEEDED) {
 		        String titleText = wv.getEngine().getTitle();
 		        stage.setTitle(titleText);
-//		    }
-//		});
+		    }
+		});
 
 		stage.show();			
 	}
