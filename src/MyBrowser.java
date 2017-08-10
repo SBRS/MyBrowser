@@ -92,6 +92,7 @@ public class MyBrowser extends Application {
 		    if (newState == State.SUCCEEDED) {
 		        String titleText = wv.getEngine().getTitle();
 		        stage.setTitle(titleText);
+		        txtUrl.setText(wv.getEngine().getLocation());
 		    }
 		});
 
